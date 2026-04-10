@@ -1,0 +1,13 @@
+---
+ - hosts: localhost
+   gather_facts: false
+   tasks:
+   - name: say platform_check
+     shell: echo vsphere1
+     register: platform_check
+
+   - name: platform_check debug
+     debug:
+       msg: "HELLO"
+     when: platform_check.stdout in ['vsphere1','vsphere1']
+
